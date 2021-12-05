@@ -1,0 +1,78 @@
+html
+
+.w-100{
+  width: 100%;
+}
+.w-80{
+  width: 70%;
+}
+.w-70{
+  width: 70%;
+}
+
+.w-50{
+  width: 50%;
+}
+
+
+.m-3{
+  margin: 3%;
+}
+.ml-10{
+  margin-left: 10% !important;
+}
+.pt-5{
+  padding-top: 5%;
+}
+.pl-3{
+  padding-left: 3%;
+}
+.pl-15{
+  padding-left: 15% !important;
+}
+
+.btn-login{
+  background-color: #E69774;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.btn-login:hover{
+  color: #E69774;
+  background-color: #fff;
+  border: 1px solid #E69774;
+  transition: color 0.8s linear 0.2s;
+}
+.a-signUp{
+color: #647E7F;
+}
+.a-signUp:hover{
+  color: #647E7F;
+}
+.btn-signup{
+  background-color: #3A0A8D;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px
+}
+.btn-signup:hover{
+  color: #3A0A8D;
+  background-color: #fff;
+  border: 1px solid #3A0A8D;
+  transition: color 0.8s linear 0.2s;
+}
+.a-LogIn{
+  color: #BDA8E0;
+}
+  .a-LogIn:hover{
+    color: #BDA8E0;
+}
+.img-signUp{
+  width: 350px;
+  height: 350px;
+  border-radius: 150px;
+}
