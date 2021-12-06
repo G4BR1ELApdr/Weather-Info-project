@@ -1,13 +1,18 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Login from '../components/login';
-import signUp from '../components/signUp'; 
+import LogIn from '../components/login';
+import SignUp from '../components/signUp';
+import Principal from '../components/Principal';
 
-export default function Home() {
+function ConectionAll() {
   return (
-    <Container>
-      <Login />
-      <signUp/>
+    <>
+      <Container>
+        <LogIn />
+        {/* <SignUp />
+        <Principal /> */}
       </Container>
+    </>
   )
 }
+export default ConectionAll

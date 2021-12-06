@@ -18,9 +18,14 @@ html
 .m-3{
   margin: 3%;
 }
+.mb-5{
+  margin-bottom: 5%;
+}
 .ml-10{
   margin-left: 10% !important;
 }
+
+
 .pt-5{
   padding-top: 5%;
 }
@@ -31,6 +36,7 @@ html
   padding-left: 15% !important;
 }
 
+/* //login// */
 .btn-login{
   background-color: #E69774;
   border: none;
@@ -51,6 +57,8 @@ color: #647E7F;
 .a-signUp:hover{
   color: #647E7F;
 }
+
+/* //signup// */
 .btn-signup{
   background-color: #3A0A8D;
   border: none;
@@ -75,4 +83,24 @@ color: #647E7F;
   width: 350px;
   height: 350px;
   border-radius: 150px;
+}
+
+/* //principal// */
+.profile-principal{
+  justify-content: flex-end;
+  padding: 4%;
+}
+.txt-welcome{
+  padding: 5%;
+  font-family: -webkit-pictograph;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 0em;
+  text-align: center;
+  -webkit-text-stroke: 1px #000;
+  -webkit-text-fill-color: transparent;
+}
+.prueba{
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
