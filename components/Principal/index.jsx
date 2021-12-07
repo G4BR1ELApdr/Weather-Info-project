@@ -1,10 +1,10 @@
-import React from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Container, Row, Col, Nav, } from 'react-bootstrap';
+import ListCountries from "../listCountries";
 
 
 
 function Principal() {
-
 
     return (
         <>
@@ -26,13 +26,12 @@ function Principal() {
                 </Row>
                 <Row className="prueba">
                     <Col>
-
+                       <ListCountries/>
                     </Col>
                 </Row>
                 <Row>
                 </Row>
             </Container>
-
         </>
     )
 }
