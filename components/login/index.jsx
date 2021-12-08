@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Nav, } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
@@ -8,7 +8,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useUser } from 'reactfire';
+import * as fireAuth from 'firebase/auth';
+import firebaseApp from '../../pages/firebaseApp';
 
+
+
+firebaseApp()
+const authLocal = fireAuth.getAuth()
 
 function LogIn() {
 
@@ -35,6 +42,21 @@ function LogIn() {
         event.preventDefault();
     };
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const loginButton = () => {
+        if (email == '' || password == '') {
+            alert("the fields cannot be left empty")
+        }
+        else {
+            fireAuth.signInWithEmailAndPassword(authLocal, email, password)
+                .then(data => console.log("Parte de la data:",data))
+                .catch(error => { console.log("El problema es...", error) })
+
+        }
+    }
+
 
     return (
         <>
@@ -47,18 +69,16 @@ function LogIn() {
                                 <div>
                                     <img src="login/WeatherInfo.png" />
                                 </div>
-                                {/* <h4 className="m-3">Welcome back!</h4> */}
                             </div>
                         </Row>
                         <Row className="ml-10">
-                            <TextField id="Email" label="Email" className="m-3 w-50" />
+                            <TextField id="Email" label="Email" className="m-3 w-50" onChange={(ev) => setEmail(ev.target.value)} />
                             <FormControl className="m-3 w-50">
                                 <InputLabel htmlFor="Password">Password</InputLabel>
                                 <OutlinedInput
+                                    onChange={(ev) => setPassword(ev.target.value)}
                                     id="password"
                                     type={values.showPassword ? 'text' : 'password'}
-                                    value={values.password}
-                                    onChange={handleChange('password')}
                                     endAdornment={
                                         <InputAdornment position="end">
                                             <IconButton
@@ -74,10 +94,10 @@ function LogIn() {
                                     label="Password"
                                 />
                             </FormControl>
-                            <button className="m-3 w-50 btn-login">Log in
-                                {/* <Nav>
+                            <button onClick={loginButton} className="m-3 w-50 btn-login">Log in
+                                <Nav>
                                     <Nav.Link href="/principal" ></Nav.Link>
-                                </Nav> */}
+                                </Nav>
                             </button>
                         </Row>
                         <Row>
