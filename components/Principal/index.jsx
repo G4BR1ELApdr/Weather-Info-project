@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Row, Col, Nav, } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Col } from 'react-bootstrap';
 import ListCountries from "../listCountries";
 
 
@@ -13,23 +13,11 @@ function Principal() {
                     <Col xs="12" md="6" lg="6">
                         <img src="/principal/logo2.png" className="w-50" />
                     </Col>
-                    <Col xs="12" md="3" lg="3">
-                        <spam>&nbsp;</spam>
-                    </Col>
-                    <Col xs="12" md="3" lg="3">
-
-                    </Col>
-                    <Col>
-                        {/* <p className="txt-welcome">Welcome!</p> */}
-                    </Col>
-
                 </Row>
-                <Row className="prueba">
+                <Row className="bg-infoCitys mt-5">
                     <Col>
-                       <ListCountries/>
+                        <ListCountries />
                     </Col>
-                </Row>
-                <Row>
                 </Row>
             </Container>
         </>

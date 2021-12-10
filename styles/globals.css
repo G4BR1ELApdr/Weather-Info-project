@@ -24,6 +24,9 @@ html
 .ml-10{
   margin-left: 10% !important;
 }
+.mt-5{
+  margin-top: 5%;
+}
 
 
 .pt-5{
@@ -101,6 +104,16 @@ color: #647E7F;
   -webkit-text-stroke: 1px #000;
   -webkit-text-fill-color: transparent;
 }
-.prueba{
+.bg-infoCitys{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 5%;
+}
+.btn-addCountry{
+  background-color: #E69774;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 1%;
 }

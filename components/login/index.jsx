@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Nav, } from 'react-bootstrap';
+import { Container, Row, Col, } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useUser } from 'reactfire';
 import * as fireAuth from 'firebase/auth';
 import firebaseApp from '../../pages/firebaseApp';
 
@@ -28,9 +30,6 @@ function LogIn() {
         showPassword: false,
     });
 
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
     const handleClickShowPassword = () => {
         setValues({
             ...values,
@@ -44,6 +43,8 @@ function LogIn() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
     const loginButton = () => {
         if (email == '' || password == '') {
@@ -51,11 +52,15 @@ function LogIn() {
         }
         else {
             fireAuth.signInWithEmailAndPassword(authLocal, email, password)
-                .then(data => console.log("Parte de la data:",data))
-                .catch(error => { console.log("El problema es...", error) })
-
+                .then(data => {
+                    setRedirect(true);
+                    console.log("Redirect data :", redirect)
+                })
+                .catch(error => { setShowAlert(true) })
         }
+
     }
+
 
 
     return (
@@ -94,11 +99,25 @@ function LogIn() {
                                     label="Password"
                                 />
                             </FormControl>
-                            <button onClick={loginButton} className="m-3 w-50 btn-login">Log in
-                                <Nav>
-                                    <Nav.Link href="/principal" ></Nav.Link>
-                                </Nav>
+                            <button onClick={loginButton} className="m-3 w-50 btn-login">
+                                {password == ("1234567") ?
+                                        <Nav.Link href="/principal">Log in</Nav.Link>
+                                    :
+                                    <>Log in</>}
                             </button>
+                            {showAlert ?
+                                <>
+                                    <Stack sx={{ width: '100%' }} spacing={2}>
+                                        <Alert variant="outlined" severity="error">
+                                            the user or password do not match or do not exist
+                                        </Alert>
+                                    </Stack></>
+                                :
+
+                                <></>
+
+                            }
+
                         </Row>
                         <Row>
                             <p className="pt-5 pl-15">You don&apos;t have an acount? <b>
